@@ -49,9 +49,9 @@ def incflx_ads_urls(url="https://www.incestflix.com/", indx=0, r=requests.Sessio
 async def print_waiting():
     for i in range(100000):
         if i % 2:
-            print(f"\r... Waiting for download to start\t", end='\r')
+            print(f"\r... Waiting for Read to start\t", end='\r')
         else:
-            print(f"\r. Waiting for download to start  \t", end='\r')
+            print(f"\r. Waiting for Read to start  \t", end='\r')
         await asyncio.sleep(0.27387)
     return
 
@@ -160,7 +160,6 @@ async def set_tail_from_hosts(_filename="C:\\Windows\\System32\\drivers\\etc\\ho
 
 
 def main():
-    global_tail_set = set()
     try:
         loop = asyncio.get_event_loop()
         _waiting = asyncio.ensure_future(print_waiting())
@@ -174,7 +173,6 @@ def main():
             for v in incflxSet:
                 if v not in set_from_tail:
                     strwth += "\n0.0.0.0 " + v
-                    global_tail_set = global_tail_set | set(v)
         if strwth is not '':
             write_to_hosts(strwth)
             print("written to hosts: " + strwth)
